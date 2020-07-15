@@ -9,7 +9,7 @@ on:
     branches: [ master ]
  
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
 jobs:
   # This workflow contains a single job called "build"
   build:
@@ -21,26 +21,26 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-  # Runs a single command using the runners shell
+  
     - name: Install node js
       uses: actions/setup-node@v2-beta
       with:
          node-version: 12
 
-    # Runs a set of commands using the runners shellnp
-    - name: install yarn
-      uses: borales/actions-yarn@v2.0.0
+    
+    
+    - uses: borales/actions-yarn@v2.0.0
       with:
           cmd: install # will run `yarn install` command
   
-    - name: run yarn
+    - name: build react app
       run: yarn build
         
     - name: install surge
       run:  npm install -g surge
     
     - name:  build surge
-      run: surge ./ react_app123.surge.sh --token ${{secrets.REACT_SURGE_TOKEN}}
+      run: surge ./build react_app123.surge.sh --token ${{secrets.REACT_SURGE_TOKEN}}
         
         
         
