@@ -40,7 +40,7 @@ jobs:
       run:  npm install -g surge
     
     - name:  build surge
-      run: surge ./ react_app.surge.sh --token ${{secrets.REACT_SURGE_TOKEN}}
+      run: surge ./ react_app123.surge.sh --token ${{secrets.REACT_SURGE_TOKEN}}
         
         
         
